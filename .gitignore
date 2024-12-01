@@ -85,8 +85,8 @@ dkms.conf
 *.out
 *.app
 
-rootfs/
+#rootfs/
 .vscode/
 wrapper
-rootfs/system/bin/linker64
+#rootfs/system/bin/linker64
 build/
