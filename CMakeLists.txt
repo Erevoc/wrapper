@@ -22,8 +22,6 @@ set(WRAPPER_SOURCE wrapper.c)
 
 add_library(handle_object OBJECT ${HANDLE_SOURCE})
 
-add_executable(main ${MAIN_SOURCE} $<TARGET_OBJECTS:cmdline_object> $<TARGET_OBJECTS:handle_object>)
-
 set_target_properties(main PROPERTIES 
     COMPILE_DEFINITIONS "MyRelease"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/rootfs/system/bin"
