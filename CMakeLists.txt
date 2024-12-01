@@ -22,7 +22,7 @@ set(WRAPPER_SOURCE wrapper.c)
 
 add_library(handle_object OBJECT ${HANDLE_SOURCE})
 
-set_target_properties(main PROPERTIES 
+set_target_properties(test PROPERTIES 
     COMPILE_DEFINITIONS "MyRelease"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/rootfs/system/bin"
 )
@@ -33,7 +33,7 @@ find_library(MEDIAPLATFORM_LIB mediaplatform PATHS ${CMAKE_SOURCE_DIR}/rootfs/sy
 find_library(CXX_SHARED_LIB c++_shared PATHS ${CMAKE_SOURCE_DIR}/rootfs/system/lib64)
 
 # Link libraries
-target_link_libraries(main
+target_link_libraries(test
     ${CXX_SHARED_LIB}
     ${ANDROIDAPPMUSIC_LIB}
     ${STORESERVICESCORE_LIB}
@@ -50,5 +50,5 @@ ExternalProject_Add(
     BUILD_COMMAND aarch64-linux-gnu-gcc -o wrapper ${WRAPPER_SOURCE}
     BUILD_IN_SOURCE 1
     INSTALL_COMMAND ""
-    DEPENDS main
+    DEPENDS test
 )
