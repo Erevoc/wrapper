@@ -39,6 +39,9 @@ jobs:
       id: vars
       run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
+    - name: Check repository context
+      run: echo "Repository: $GITHUB_REPOSITORY"
+
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
