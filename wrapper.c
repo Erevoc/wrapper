@@ -1,6 +1,6 @@
 #define _GNU_SOURCE
+
 #include <errno.h>
-#include <sched.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
@@ -39,10 +39,10 @@ int main(int argc, char *argv[], char *envp[]) {
     chmod("/system/bin/linker64", 0755);
     chmod("/system/bin/main", 0755);
 
-    if (unshare(CLONE_NEWPID)) {
-        perror("unshare");
-        return 1;
-    }
+    // if (unshare(CLONE_NEWPID)) {
+    //     perror("unshare");
+    //     return 1;
+    // }
     child_proc = fork();
     if (child_proc == -1) {
         perror("fork");
